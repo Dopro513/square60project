@@ -41,9 +41,9 @@
                     <label class="label">Block: {{ $property->block }}</label>
                     <label class="label">Lot: {{ $property->lot }}</label>
                     <label class="label">Building class: {{ $property->building_class_name }}</label>
-                    <label class="label">Building Type: <span class="danger">?</span></label>
-                    <label class="label">Type: <span class="danger">?</span></label>
-                    <label class="label">Neighborhood: <span class="danger">?</span></label>
+                    <label class="label">Building Type: </label>
+                    <label class="label">Type: </label>
+                    <label class="label">Neighborhood: </label>
                     <label class="label">Community disctrict: {{ $property->community_district }}</label>
                     <label class="label">Police Precenct: {{ $property->police_precinct }}</label>
                     <label class="label">Fire Station: {{ $property->fire_company }}</label>
@@ -70,9 +70,12 @@
                     <label class="label">-Office: </label>
                     <label class="label">-Retail: </label>
                     <label class="label">Residential size: {{ $property->residential_area }}</label>
-                    <label class="label">Commercial size: {{ $property->commerical_area }}</label>
-                    <label class="label">-office: {{ $property->office_area }}</label>
-                    <label class="label">-Retail: {{ $property->retail_area }}</label>
+                    <label class="label">Commercial size: </label>
+                    <label class="label">-office: </label>
+                    <label class="label">-Retail: </label>
+                    {{--<label class="label">Commercial size: {{ $property->commerical_area }}</label>--}}
+                    {{--<label class="label">-office: {{ $property->office_area }}</label>--}}
+                    {{--<label class="label">-Retail: {{ $property->retail_area }}</label>--}}
                 </div>
                 <div class="column">
                     <p class="is-6 title ">Zonning</p>
@@ -82,44 +85,62 @@
                     <label class="label">Floor Area Ration(FAR)</label>
                     <label class="label">Resedential FAR: {{ $property->maximum_allowable_residential_far }}</label>
                     <label class="label">Commercial FAR: {{ $property->maximum_allowable_commercial_far }}</label>
+                    {{--<label class="label">Commercial FAR: {{ $property->maximum_allowable_commercial_far }}</label>--}}
                     <label class="label">Facility FAR: {{ $property->maximum_allowable_facility_far }}</label>
                     <label class="label">FAR built (current): {{ $property->built_floor_area_ratio_far }}</label>
                     <label class="label">unsuded FAR</label>
-                    <label class="label"><a target="_blank" href="{{ $property->zoning_map_url }}">Zoning Map</a></label>
-                    <label class="label"><a target="_blank" href="{{ $property->building_info_url }}">Building info</a></label>
-                    <label class="label"><a target="_blank" href="{{ $property->digital_tax_map_url }}">Digital tax map</a></label>
+                    {{--<label class="label"><a target="_blank" href="{{ $property->building_info_url }}">Building info</a></label>--}}
                 </div>
             </div>
             <hr />
-            <p class="is-6 title ">Tax</p>
-            <label class="label">Tax class: <span class="danger">?</span></label>
-            <label class="label">Current Tax: <span class="danger">?</span></label>
-            <label class="label">For more detail go to section</label>
-            <label class="label">Building Image <span class="danger">?</span></label>
-            <img src="{{ asset('images/2.jpg') }}" width="300px" />
-            <label class="label">Google map</label>
+            <p class="is-6 title">Building Images</p>
+            <div style='text-align: center'>
+                <img src="{{ asset('images/2.jpg') }}" width="300px" />
+            </div>
+            {{--<p class="is-6 title">Tax</p>--}}
+            {{--<label class="label">Tax class: <span class="danger">?</span></label>--}}
+            {{--<label class="label">Current Tax: <span class="danger">?</span></label>--}}
+            {{--<label class="label">For more detail go to section</label>--}}
+            {{--<label class="label">Building Image <span class="danger">?</span></label>--}}
+            {{--<img src="{{ asset('images/2.jpg') }}" width="300px" />--}}
+
+            <p class="is-6 title">Google map</p>
+            {{--<label class="label">Google map</label>--}}
             <div class="mapouter">
-                <div class="gmap_canvas" id="gmap_canvas">
+                <div class="gmap_canvas" id="gmap_canvas" style="margin: 0 auto">
 
                 </div>
             </div>
             {{--<div class="mapouter"><div class="gmap_canvas"><iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=university of san francisco&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe></div><a href="https://www.crocothemes.net">wordpress themes</a><style>.mapouter{overflow:hidden;height:500px;width:600px;}.gmap_canvas {background:none!important;height:500px;width:600px;}</style></div><div class="owner">--}}
-                <label class="label">Tax map (Only for members)</label>
+            <p class="is-6 title"><a href="{{ $property->digital_tax_map_url }}">Tax map</a></p>
                 {{--<img src="{{ asset('images/3.jpg') }}" width="500px" />--}}
-                <iframe src="{{ $property->digital_tax_map_url }}" frameborder="0" width="600px" height="500px"></iframe>
-                <div class="taxes">
-                    <label class="label">Calculate tax: <span class="danger">?</span></label>
-                    <label class="label">Land market value: <span class="danger">?</span></label>
-                    <label class="label">Building market value: <span class="danger">?</span></label>
-                    <label class="label">Total market value: <span class="danger">?</span></label>
-                    <label class="label">Current assessed value: <span class="danger">?</span></label>
-                    <label class="label">Property tax : <span class="danger">?</span></label>
+                <div style="text-align: center">
+                    <iframe src="{{ $property->digital_tax_map_url }}" frameborder="0" width="600px" height="500px"></iframe>
                 </div>
-                <label class="label">Zonning map (Only for members)</label>
-                <label class="label">Bulding Foot print: <span class="danger">?</span></label>
-                <label class="label">Owner:</label>
+                <div class="taxes">
+                    <label class="label">Calculate tax: </label>
+                    <label class="label">Land market value: </label>
+                    <label class="label">Building market value: </label>
+                    <label class="label">Total market value: </label>
+                    <label class="label">Current assessed value: </label>
+                    <label class="label">Property tax: </label>
+                </div>
+                {{--<label class="label">Zonning map (Only for members)</label>--}}
+                {{--<label class="label">Bulding Foot print: <span class="danger">?</span></label>--}}
+                <p class="is-6 title"><a href="{{ $property->zoning_map_url }}">Zonning map (Only for members)</a></p>
+                <div style="text-align: center">
+                    <iframe src="{{ $property->zoning_map_url }}" frameborder="0" width="600px" height="500px"></iframe>
+                </div>
+
+                <p class="is-6 title"><a href="{{ $property->building_info_url  }}">Building info</a></p>
+                <div style="text-align: center">
+                    <iframe src="{{ $property->building_info_url }}" frameborder="0" width="600px" height="500px"></iframe>
+                </div>
+
+                <p class="is-6 title"><a href="https://www.openstreetmap.org/#map=19/{{ $property->latitude }}/{{ $property->longitude }}">Bulding Foot print</a></p>
+                <p class="is-6 title">Owner:</p>
                 <label class="label">{{ $property->owner }}</label>
-                <label class="label">{{ $property->borough . ' NY ' . $property->zip_code}}</label>
+                <label class="label">{{ $property->address . ' ' . $property->borough . ' NY ' . $property->zip_code}}</label>
             </div>
             <p>Similar property sold records:</p>
         </div>
